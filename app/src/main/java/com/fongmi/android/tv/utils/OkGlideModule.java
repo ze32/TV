@@ -15,6 +15,7 @@ import com.bumptech.glide.integration.avif.AvifByteBufferBitmapDecoder;
 import com.bumptech.glide.integration.avif.AvifGlideModule;
 import com.bumptech.glide.integration.avif.AvifStreamBitmapDecoder;
 import com.bumptech.glide.integration.okhttp3.OkHttpUrlLoader;
+import com.bumptech.glide.load.engine.cache.InternalCacheDiskCacheFactory;
 import com.bumptech.glide.load.model.GlideUrl;
 import com.bumptech.glide.module.AppGlideModule;
 import com.github.catvod.net.OkHttp;
@@ -29,6 +30,9 @@ public class OkGlideModule extends AppGlideModule {
     @Override
     public void applyOptions(@NonNull Context context, @NonNull GlideBuilder builder) {
         builder.setLogLevel(Log.ERROR);
+        // 设置磁盘缓存大小为 10MB
+        int diskCacheSizeBytes = 1024 * 1024 * 10;
+        builder.setDiskCache(new InternalCacheDiskCacheFactory(context, diskCacheSizeBytes));
     }
 
     @Override
