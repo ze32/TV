@@ -23,7 +23,7 @@ import com.bumptech.glide.request.target.Target;
 import com.fongmi.android.tv.App;
 import com.fongmi.android.tv.Product;
 import com.fongmi.android.tv.R;
-import com.fongmi.android.tv.Updater;
+//import com.fongmi.android.tv.Updater;
 import com.fongmi.android.tv.api.config.LiveConfig;
 import com.fongmi.android.tv.api.config.VodConfig;
 import com.fongmi.android.tv.api.config.WallConfig;
@@ -97,7 +97,7 @@ public class HomeActivity extends BaseActivity implements CustomTitleView.Listen
     protected void initView() {
         mClock = Clock.create(mBinding.clock).format("MM/dd HH:mm:ss");
         mBinding.progressLayout.showProgress();
-        Updater.create().release().start(this);
+        //Updater.create().release().start(this);
         mResult = Result.empty();
         Server.get().start();
         setRecyclerView();
