@@ -11,6 +11,7 @@ import com.fongmi.android.tv.databinding.DialogHistoryBinding;
 import com.fongmi.android.tv.impl.ConfigCallback;
 import com.fongmi.android.tv.ui.adapter.ConfigAdapter;
 import com.fongmi.android.tv.ui.custom.SpaceItemDecoration;
+import com.fongmi.android.tv.utils.FileUtil;
 import com.fongmi.android.tv.utils.ResUtil;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
@@ -63,6 +64,8 @@ public class HistoryDialog implements ConfigAdapter.OnClickListener {
     public void onTextClick(Config item) {
         callback.setConfig(item);
         dialog.dismiss();
+        if (type != 0) return;//只有接口切换时才需要清理缓存
+        FileUtil.clearApiCache();
     }
 
     @Override
