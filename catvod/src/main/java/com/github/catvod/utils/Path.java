@@ -40,12 +40,16 @@ public class Path {
         return Init.context().getFilesDir();
     }
 
+    public static File download() {
+        return Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
+    }
+
     public static String rootPath() {
         return root().getAbsolutePath();
     }
 
     public static File tv() {
-        return mkdir(new File(root() + File.separator + "TV"));
+        return mkdir(new File(download() + File.separator + "TV"));
     }
 
     public static File so() {
@@ -223,5 +227,11 @@ public class Path {
             e.printStackTrace();
             return file;
         }
+    }
+
+    public static void clearDownloadedCache() {
+        clear(new File(cache("jpa") + File.separator + "jpali" + File.separator + "Downloads"));
+        clear(thunder());
+        clear(js());
     }
 }
