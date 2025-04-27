@@ -19,6 +19,7 @@ import com.fongmi.hook.Hook;
 import com.github.catvod.Init;
 import com.github.catvod.bean.Doh;
 import com.github.catvod.net.OkHttp;
+import com.github.catvod.utils.Path;
 import com.google.gson.Gson;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.LogAdapter;
@@ -113,6 +114,7 @@ public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        Path.clearDownloadedCache();
         Notify.createChannel();
         Logger.addLogAdapter(getLogAdapter());
         OkHttp.get().setProxy(Setting.getProxy());
