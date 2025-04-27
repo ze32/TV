@@ -21,6 +21,7 @@ import com.fongmi.android.tv.impl.ConfigCallback;
 import com.fongmi.android.tv.server.Server;
 import com.fongmi.android.tv.ui.custom.CustomTextListener;
 import com.fongmi.android.tv.utils.FileChooser;
+import com.fongmi.android.tv.utils.FileUtil;
 import com.fongmi.android.tv.utils.QRCode;
 import com.fongmi.android.tv.utils.ResUtil;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
@@ -145,6 +146,8 @@ public class ConfigDialog implements DialogInterface.OnDismissListener {
         if (name.isEmpty()) callback.setConfig(Config.find(text, type));
         else callback.setConfig(Config.find(text, name, type));
         dialog.dismiss();
+        if (type != 0) return;//只有接口切换时才需要清理缓存
+        FileUtil.clearApiCache();
     }
 
     private void onNegative(View view) {

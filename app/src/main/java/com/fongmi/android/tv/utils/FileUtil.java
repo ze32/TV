@@ -121,6 +121,14 @@ public class FileUtil {
         return TextUtils.isEmpty(mimeType) ? "*/*" : mimeType;
     }
 
+    public static void clearApiCache() {
+        App.post(() -> {
+            Notify.show("自动清理接口缓存中。。。");
+            Path.clear(Path.files());
+            Path.clear(Path.cache());
+        });
+    }
+
     public static String byteCountToDisplaySize(long size) {
         if (size <= 0) return ResUtil.getString(R.string.none);
         String[] units = new String[]{"bytes", "KB", "MB", "GB", "TB"};
