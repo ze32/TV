@@ -894,7 +894,7 @@ public class VideoActivity extends BaseActivity implements CustomKeyDownVod.List
     private void showControl(View view) {
         mBinding.control.getRoot().setVisibility(View.VISIBLE);
         view.requestFocus();
-        setR1Callback();
+        //setR1Callback();
     }
 
     private void hideControl() {
@@ -913,9 +913,9 @@ public class VideoActivity extends BaseActivity implements CustomKeyDownVod.List
         App.post(mR3, Constant.INTERVAL_TRAFFIC);
     }
 
-    private void setR1Callback() {
-        App.post(mR1, Constant.INTERVAL_HIDE);
-    }
+//    private void setR1Callback() {
+//        App.post(mR1, Constant.INTERVAL_HIDE);
+//    }
 
     private void setR2Callback() {
         App.post(mR2, 500);
@@ -1299,7 +1299,7 @@ public class VideoActivity extends BaseActivity implements CustomKeyDownVod.List
     @Override
     public boolean dispatchKeyEvent(KeyEvent event) {
         if (isFullscreen() && KeyUtil.isMenuKey(event)) onToggle();
-        if (isVisible(mBinding.control.getRoot())) setR1Callback();
+        //if (isVisible(mBinding.control.getRoot())) setR1Callback();
         if (isVisible(mBinding.control.getRoot())) mFocus2 = getCurrentFocus();
         if (isFullscreen() && isGone(mBinding.control.getRoot()) && mKeyDown.hasEvent(event)) return mKeyDown.onKeyDown(event);
         return super.dispatchKeyEvent(event);
