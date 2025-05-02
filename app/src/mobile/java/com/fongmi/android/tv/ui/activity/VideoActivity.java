@@ -993,7 +993,10 @@ public class VideoActivity extends BaseActivity implements Clock.Callback, Custo
         boolean empty = item.getVodFlags().isEmpty();
         mBinding.flag.setVisibility(empty ? View.GONE : View.VISIBLE);
         if (empty) {
-            ErrorEvent.flag();
+            // ErrorEvent.flag(tag);
+            // ---------------- 修影片没有剧集时无法自动换源的bug start -----------------
+            onError();
+            // ---------------- 修影片没有剧集时无法自动换源的bug end -----------------
         } else {
             onItemClick(mHistory.getFlag());
             if (mHistory.isRevSort()) reverseEpisode(true);
@@ -1190,6 +1193,17 @@ public class VideoActivity extends BaseActivity implements Clock.Callback, Custo
         mBinding.swipeLayout.setEnabled(true);
         Track.delete(mPlayers.getUrl());
         showError(event.getMsg());
+        mClock.setCallback(null);
+        mPlayers.resetTrack();
+        mPlayers.reset();
+        mPlayers.stop();
+        startFlow();
+    }
+
+    private void onError() {
+        mBinding.swipeLayout.setEnabled(true);
+        Track.delete(mPlayers.getUrl());
+        showError(ResUtil.getString(R.string.error_play_flag));
         mClock.setCallback(null);
         mPlayers.resetTrack();
         mPlayers.reset();
