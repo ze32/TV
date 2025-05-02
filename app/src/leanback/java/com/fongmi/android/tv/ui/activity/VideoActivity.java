@@ -949,7 +949,10 @@ public class VideoActivity extends BaseActivity implements CustomKeyDownVod.List
         boolean empty = item.getVodFlags().isEmpty();
         mBinding.flag.setVisibility(empty ? View.GONE : View.VISIBLE);
         if (empty) {
-            ErrorEvent.flag(tag);
+            // ErrorEvent.flag(tag);
+            // ---------------- 修影片没有剧集时无法自动换源的bug start -----------------
+            onError();
+            // ---------------- 修影片没有剧集时无法自动换源的bug end -----------------
         } else {
             setFlagActivated(mHistory.getFlag());
             if (mHistory.isRevSort()) reverseEpisode(true);
@@ -1112,6 +1115,16 @@ public class VideoActivity extends BaseActivity implements CustomKeyDownVod.List
     private void onError(ErrorEvent event) {
         Track.delete(mPlayers.getUrl());
         showError(event.getMsg());
+        mClock.setCallback(null);
+        mPlayers.resetTrack();
+        mPlayers.reset();
+        mPlayers.stop();
+        startFlow();
+    }
+
+    private void onError() {
+        Track.delete(mPlayers.getUrl());
+        showError(ResUtil.getString(R.string.error_play_flag));
         mClock.setCallback(null);
         mPlayers.resetTrack();
         mPlayers.reset();
