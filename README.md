@@ -19,9 +19,9 @@
 
 **1. 三方TVBox编译（墙裂推荐[FongMi影视](https://github.com/FongMi/Release/tree/fongmi/apk/release)）**
 依赖的项目:
-> update at 2025-04-24 20:30:37 UTC+0
+> update at 2025-06-11 16:24:52 UTC+0
 - [ze32/TV/v3.3.7](https://github.com/ze32/TV) (Updated: temac3ed7be1b977ac59602fa9c53c7e51127319)
-- [ze32/TV/v3.6.7](https://github.com/ze32/TV) (Updated: temac3ed7be1b977ac59602fa9c53c7e51127319)
+- [ze32/TV/v3.6.7](https://github.com/ze32/TV) (Updated: a02aef798938dc3be58767ade03a1c54085cfa1a)
 
 # 免责声明
 
