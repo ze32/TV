@@ -19,9 +19,9 @@
 
 **1. 三方TVBox编译**
 依赖的项目:
-> update at 2025-06-11 16:30:43 UTC+0
+> update at 2025-06-13 11:32:54 UTC+0
 - [ze32/TV/v3.3.7](https://github.com/ze32/TV) (Updated: 6ccabe0052dc21dff6fa8f6441f965203a47e082)
-- [ze32/TV/v4.0.0](https://github.com/ze32/TV) (Updated: a02aef798938dc3be58767ade03a1c54085cfa1a)
+- [ze32/TV/v4.0.0](https://github.com/ze32/TV) (Updated: 1c5ab6866658b8e01f79d7bc161e8726ab60636b)
 
 # 免责声明
 
