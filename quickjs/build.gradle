@@ -1,0 +1,30 @@
+plugins {
+    id 'com.android.library'
+}
+
+android {
+    namespace 'com.fongmi.android.tv.quickjs'
+
+    compileSdk 35
+
+    defaultConfig {
+        minSdk 21
+        targetSdk 28
+    }
+
+    lint {
+        disable 'UnsafeOptInUsageError'
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+}
+
+dependencies {
+    implementation project(':catvod')
+    implementation 'wang.harlon.quickjs:wrapper-java:3.2.0'
+    implementation 'wang.harlon.quickjs:wrapper-android:3.2.0'
+    implementation 'net.sourceforge.streamsupport:android-retrofuture:1.7.4'
+}
