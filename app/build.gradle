@@ -24,9 +24,11 @@ android {
 
     productFlavors {
         leanback {
+            applicationId "app.fongmi.tv400"
             dimension "mode"
         }
         mobile {
+            applicationId "app.fongmi.tv400.m"
             dimension "mode"
         }
         arm64_v8a {
