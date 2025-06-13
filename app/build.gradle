@@ -87,6 +87,12 @@ dependencies {
     implementation project(':catvod')
     implementation project(':chaquo')
     implementation project(':quickjs')
+    implementation project(':forcetech')
+    implementation project(':hook')
+    implementation project(':jianpian')
+    implementation project(':thunder')
+    implementation project(':tvbus')
+    //implementation project(':zlive')
     implementation 'androidx.appcompat:appcompat:1.7.0'
     implementation 'androidx.media:media:1.7.0'
     implementation 'androidx.media3:media3-common:' + media3Version
@@ -140,4 +146,5 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.16.0'
     annotationProcessor 'org.greenrobot:eventbus-annotation-processor:3.3.1'
     coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs_nio:2.1.4'
+    implementation 'com.github.ctiao:dfm:0.9.25'
 }
