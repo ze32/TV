@@ -1,5 +1,6 @@
 package com.p2p;
 
+import com.github.catvod.utils.GithubDown;
 import com.github.catvod.utils.Path;
 
 public class P2PClass {
@@ -7,7 +8,7 @@ public class P2PClass {
     public int port;
 
     public P2PClass() {
-        System.loadLibrary("jpa");
+        System.load(GithubDown.getSo("jpa"));
         this.port = P2Pdoxstarthttpd("TEST3E63BAAECDAA79BEAA91853490A69F08".getBytes(), Path.jpa().getAbsolutePath().getBytes());
     }
 
